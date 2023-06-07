@@ -1,20 +1,77 @@
 {% extends "base.html" %}
 
 {% block content %}
+<style>
 
+  
+  table {
+      border-collapse: collapse;
+  }
+  
+  th, td {
+      border: 1px solid black;
+      padding: 8px;
+      text-align: left;
+  }
+
+  .row_1 {
+    background-color: #ffff00;
+    color: black;
+  }
+
+  .row_2 {
+    background-color: #000000;
+    color: white;
+  }
+
+
+</style>
   <h1>Buggy</h1>
 
   <table>
     <tr>
-      <td>ID:</td> <td> {{ buggy['id'] }} </td>
+      <td class="row_1">ID:</td> <td class="row_2"> {{ buggy['id'] }} </td>
     </tr>
     <tr>
-      <td>Wheels:</td> <td> {{ buggy['qty_wheels'] }} </td>
+      <td class="row_2">Wheels: </td> <td class="row_1"> {{ buggy['qty_wheels'] }} </td>
+    </tr>
+    <tr>
+      <td class="row_1">Flag Color:</td><td class="row_2">{{ buggy['flag_color'] }}</td>
+    </tr>
+    <tr>
+      <td class="row_2">Secondary Flag Color:</td><td class="row_1">{{ buggy['flag_color_secondary'] }}</td>
+    </tr>
+    <tr>
+      <td class="row_1">Quantity of Tyres:</td><td class="row_2">{{ buggy['qty_tyres'] }}</td>
+    </tr>
+    <tr>
+      <td class="row_2">Power Type:</td><td class="row_1">{{ buggy['power_type'] }}</td>
+    </tr>
+    <tr>
+      <td class="row_1">Tyre Type:</td><td class="row_2">{{ buggy['tyres'] }}</td>
+    </tr>
+    <tr>
+      <td class="row_2">Armour: </td><td class="row_1">{{ buggy['armour'] }}</td>
+    </tr>
+    <tr>
+      <td class="row_1">Attack: </td><td class="row_2">{{ buggy['attack'] }}</td>
+    </tr>
+    <tr>
+      <td class="row_2">Algo: </td><td class="row_1">{{ buggy['algo'] }}</td>
+    </tr>
+    <tr>
+      <td class="row_1">Flag Pattern: </td><td class="row_2">{{ buggy['flag_pattern'] }}</td>
+    </tr>
+    <tr>
+      <td class="row_2"> Special: </td><td class="row_1">{{ buggy['special'] }}</td>
+    </tr>
+    <tr>
+      <td class="row_1">Total Cost:</td><td class="row_2">{{ buggy['total_cost'] }}</td>
     </tr>
   </table>
 
   <p>
-    <a href="/" class="button">home</a>
+    <a href="/" class="button">Home</a>
   </p>
 
 {% endblock %}

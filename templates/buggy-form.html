@@ -2,16 +2,173 @@
 
 {% block content %}
 
-  <h1>Make buggy</h1>
+<style>
+  .warning {
+    background-color: rgb(254, 200, 200);
+    color: red;
+    padding: 10px;
+    display: inline-block;
+    border: 1px solid lightpink;
+    border-radius: 3px;
+  }
 
-  <form action="/new" method="post">
+  label {
+    display: block;
+  }
+
+
+  input[type="text"],
+  select {
+    width: 200px;
+    height: 30px;
+    box-sizing: border-box;
+    padding: 5px;
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+
+
+</style>
+  <h1>
+    Create a Buggy
+  </h1>
+
+<form action="/new" method="post">
     <label for="qty_wheels">Number of wheels:</label>
-    <input type="text" name="qty_wheels" />
-    <input type="submit" class="button">
-  </form>
+    <input type="text" name="qty_wheels" value="{{qty_wheels}}" />
+    {% if invalid_input %}
+      <div class="warning">{{invalid_input}}</div>
+    {% endif %}
+    <label for="flag_color">Flag Color:</label>
+    <input type="text" name="flag_color" value="{{flag_color}}" />
+    
+    <label for="flag_color_secondary">Secondary Flag Color:</label>
+    <input type="text" name="flag_color_secondary" value="{{flag_color_secondary}}">
+    
+    <label for="qty_tyres">Number of tyres:</label>
+    <input type="text" name="qty_tyres" value="{{qty_tyres}}" />
 
-  <p>
-    <a href="/" class="button">home</a>
-  </p>
+
+    <label for="power_type">Power Type:</label>
+    <select id="power_type" name="power_type" value="power_type">
+      <option value="None" id="None">None</option>
+      <option value="bio">Bio</option>
+      <option value="electric">Electric</option>
+      <option value="fusion">Fusion</option>
+      <option value="hamster">Hamster</option>
+      <option value="petrol">Petrol</option>
+      <option value="rocket">Rocket</option>
+      <option value="solar">Solar</option>
+      <option value="steam">Steam</option>
+      <option value="thermo">Thermo</option>
+      <option value="wind">Wind</option>
+    </select>
+    {% if power_type_warning %}
+      <div class="warning">{{power_type_warning}}</div>
+    {% endif %}
+
+    <label for="tyres">Tyres:</label>
+    <select id="tyres" name="tyres" value="tyres">
+      <option value="None">None</option>
+      <option value="knobbly">Knobbly</option>
+      <option value="slick">Slick</option>
+      <option value="steelband">Steel Band</option>
+      <option value="reactive">Reactive</option>
+      <option value="maglev">Maglev</option>
+    </select>
+    {% if tyres_warning %}
+      <div class="warning">{{tyres_warning}}</div>
+    {% endif %}
+
+    <label for="armour">Armour:</label>
+    <select id="armour" name="armour" value="armour">
+      <option value="None">None</option>
+      <option value="aluminium">Aluminium</option>
+      <option value="thicksteel">Thick Steel</option>
+      <option value="thinsteel">Thin Steel</option>
+      <option value="titanium">Titanium</option>
+      <option value="wood">Wood</option>
+    </select>
+    {% if armour_warning %}
+      <div class="warning">{{armour_warning}}</div>
+    {% endif %}
+
+
+    <label for="attack">Attack:</label>
+    <select id="attack" name="attack" value="attack">
+      <option value="None">None</option>
+      <option value="biohazard">Biohazard</option>
+      <option value="charge">Charge</option>
+      <option value="flame">Flame</option>
+      <option value="spike">Spike</option>
+    </select>
+    {% if attack_warning %}
+      <div class="warning">{{attack_warning}}</div>
+    {% endif %}
+
+
+    <label for="algo">Algo:</label>
+    <select id="algo" name="algo" value="algo">
+      <option value="None">None</option>
+      <option value="buggy">Buggy</option>
+      <option value="defensive">Defensive</option>
+      <option value="offensive">Offensive</option>
+      <option value="random">Random</option>
+      <option value="steady">Steady</option>
+      <option value="titfortat">Tit-for-Tat</option>
+    </select>
+    {% if algo_warning %}
+      <div class="warning">{{algo_warning}}</div>
+    {% endif %}
+
+
+    <label for="flag_pattern">Flag Pattern</label>
+    <select id="flag_pattern" name="flag_pattern" value="flag_pattern">
+      <option value="None">None</option>
+      <option value="check">A chequered grid</option>
+      <option value="dstripe">Diagonal stripes</option>
+      <option value="hstripe">Horizontal stripes</option>
+      <option value="plain">A plain flag</option>
+      <option value="spot">Spotted Pattern</option>
+      <option value="vstripe">Vertical stripes</option>
+    </select>
+    {% if flag_pattern_warning %}
+      <div class="warning">{{flag_pattern_warning}}</div>
+    {% endif %}
+
+    <label for="special">Special:</label>
+    <select id="special" name="special" value="special">
+      <option value="None">None</option>
+      <option value="antibiotic">Antibiotic</option>
+      <option value="banging">Banging</option>
+      <option value="fireproof">Fireproof</option>
+      <option value="hamster_booster">Hamster Booster</option>
+      <option value="insulated">Insulated</option>
+    </select>
+    {% if special_warning %}
+      <div class="warning">{{special_warning}}</div>
+    {% endif %}
+
+    <br>
+      <input type="submit" value="Submit" class="button">
+      <a href="/" class="button">Home</a>
+      <input type="button" class="button" value="Generate" onclick="autocompleteValues()" />
+</form>
+<script>
+
+  function autocompleteValues() {
+    document.getElementsByName("qty_wheels")[0].value = "4";
+    document.getElementsByName("flag_color")[0].value = "Red";
+    document.getElementsByName("flag_color_secondary")[0].value = "Yellow";
+    document.getElementsByName("qty_tyres")[0].value = "4";
+    document.getElementsByName("power_type")[0].value = "electric";
+    document.getElementsByName("tyres")[0].value = "slick";
+    document.getElementsByName("armour")[0].value = "thicksteel";
+    document.getElementsByName("attack")[0].value = "spike";
+    document.getElementsByName("algo")[0].value = "defensive";
+    document.getElementsByName("flag_pattern")[0].value = "spot";
+    document.getElementsByName("special")[0].value = "insulated";
+  }
+</script>
 
 {% endblock %}

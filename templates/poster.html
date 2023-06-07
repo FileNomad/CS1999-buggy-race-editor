@@ -1,0 +1,179 @@
+{% extends "base.html" %}
+{% block content %}
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+  CS1999 Buggy Editor Project texts by ben
+  Downloaded from the race server: 2023-06-07 16:54
+
+  For more about your poster, see
+  http://rhul.buggyrace.net/project/poster
+
+  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+
+  
+  <style>
+  .poster-tasks {
+    border-top: 1px solid rgb(148,146,146);
+    margin-top: 4em;
+    text-align: center;
+  }
+  .poster-tasks .task {
+    margin: 1em;
+    padding: 1em;
+    border: 1px solid rgb(138, 138, 138);
+    text-align: center;
+  }
+  .poster-tasks .task h2 {
+    border-bottom: 3px solid rgb(148, 146, 146);
+    text-align: center;
+  }
+  .h1 {
+    text-align: center;}
+
+    .h2 {
+        color: #f84848;
+    }
+  </style>
+  
+
+  <!-- Anything you want here: make it beautiful! make it appealing! make it clear! -->
+  <!-- you can drop images into static/assets if you want... and access them        -->
+  <!-- here with <img src="/static/image-filename.png" alt="diagram" />             -->
+  <!--                                                                              -->
+  <!-- Of course you can edit static/app.css too if you want...                     -->
+  <!-- It's your webserver, after all.                                              -->
+  <!--                                                                              -->
+  <!-- Maybe... delete all these comments too :-)                                   -->
+  
+  
+  <!-- below this point keep this section tag and paste in a <div> for every        -->
+  <!-- task you attempted.                                                          -->
+  
+ 
+  
+
+  
+  <!-- this closes the section: keep it in! -->
+<h1 class="h1">Benjamin Yellop Buggy Poster</h1>
+
+<p>
+    This is a poster demonstrating the functionality of my buggy editor. Below you will see listed all of the tasks I have attempted, and in some of which I have listed why I could or could not do a task or incorporate a method.<br>
+    My buggy editor allows the user to select from a list of features and upgrades, and displays the total cost of these upgrades on another page after the buggy is submitted. Quality of life improvements have been made in regards to the styling of each sheet, with careful attention being paid to colour schemes and font styles. It was my intention to have a harshly contrasted colour scheme as in my opinion it aligns with the competitive demographic of buggy racing and creation. I added a home button to each page so the user can navigate back to the index when necessary. The buttons are rounded in shape to give them a softer feel and are aligned appropriately on each page. The user will be notified of their successful buggy creations and be warned if any field values are invalid, prompting them to resubmit the form. I have learnt a lot throughout the time spent editing this project, and would like to see my skills develop to be able to progress further into the task list if I ever had the opportunity to revisit this task in the future. I hope you, the reader, enjoys the experience of using and creating buggies through my webpages. Buttons have been added with hover effects which allows the user to navigate back to the home page regardless of which page they are on. A total cost feature allows the user to easily view how much their buggy will cost, and they can go back and make the changes accordingly. A view buggy JSON button will allow the user to view all of the buggy features as a JSON file. A get buggy info button will bring the user to a full, detailed and stylized table where they can peruse the cost of different components. Lastly, the view buggy poster button will bring the user here, where they are able to read and hopefully enjoy my description of the tasks I was presented with.
+</p>
+<section class="poster-tasks">
+<div class="task">
+    <h2 class="h2">0-GET Get the source code</h2>
+    <p>
+        I forked the repo on GitHub and then used <code>git clone</code> to make
+        a local copy.
+    </p>
+    <p>
+        Once the repo was on my own machine I was able to commit changes to
+        version control as I went along, and I pushed back up to my GitHub repo
+        at the end of each day. I followed GitHub's instructions and set up a
+        SSH key so I didn't need to enter username and password every time I
+        pushed.
+    </p>
+    </div>
+  <div class="task">
+    <h2 class="h2">0-RUN: Get app running and view it in a browser</h2>
+    <p>
+    After forking the files from the github repos, I was able to run the app.py file and ctrl+click the IP in the terminal. A new window opened in my browser showing the file has executed successfully.
+    </p>    
+  </div>
+  
+  
+  <div class="task">
+    <h2 class="h2">0-CHANGE: Make a change to a template and see it appear</h2>
+  
+    <p>I changed the first header in the index.html file to 'Ben's buggy editor'. This was a case of changing the text between the h1 /h1 tags. </p>
+  
+  </div>
+  
+  
+  <div class="task">
+    <h2 class="h2">1-TEMPLATE: Add a new template to the app</h2>
+  
+    I created a new info.html file in my buggy editor, in which I added tables showing all of the upgrade traits. I also formatted each table by creating a class which automatically extended the table to the end of the contents instead of the end of the page. I then hard coded the data from the server into the html file, and this taught me that one disadvantage of hard coding data is the amount of time it takes to achieve a result.
+  
+  </div>
+  
+  
+  <div class="task">
+    <h2 class="h2">1-ADD: Add more data to the form</h2>
+  
+    I added a 'flag colour' heading to submit a custom string. I did this by adding a request form to the create_buggy class inside the app.py file. I then added a new table row to the buggy html file to display the flag colour. I also needed to add a label to the buggy form html file, and once all of that was done, I tested my application to validate it worked.
+  
+  </div>
+  
+  
+  <div class="task">
+    <h2 class="h2">1-VALID: Add basic data validation</h2>
+  
+    I used an if statement with the .isdigit() method to return an error string if the user attempts to put anything other than an integer into the submission box. I also added a conditional whereby if the user selects 'none' as one of the options on the dropdown list, it will prompt them to resubmit the form as none is an invalid selection. I also validated whether the number of wheels is even by checking if it is divisible by 2 or equal to 0:  if not qty_wheels.isdigit() or not int(qty_wheels)%2 == 0 or int(qty_wheels) == 0. This will run an invalid input error message. 
+  
+  </div>
+  
+  
+  <div class="task">
+    <h2 class="h2">1-STYLE: Style your editor just how you like it</h2>
+  
+    I made the black and white striped pattern more vibrant on the left side of the screen. Initially, I attempted to make a symmetric pattern with the yellow and black stripes on the right side of the screen, but I had many issues formatting it so that it would move as the user scrolled down the screen, sizing, position and eventually I decided that it was too much trouble to make any progress on the webpage, so I kept the left hand side only. The colour scheme is also black and yellow, and I changed the button style to more rounded and added dark yellow shadows when the user hovers over the buttons. I also added a home button to each page so the user can navigate back to the index when necessary.
+  
+  </div>
+  
+  
+  <div class="task">
+    <h2 class="h2">2-EDIT: Edit the record by loading its current values into the form</h2>
+  
+    I edited the createbuggy function in my app.py file to retrieve data from the SQL database using the GET method, this way there are always default values loaded into the webpage before the user submits anything.
+  
+  </div>
+  
+  
+  <div class="task">
+    <h2 class="h2">2-FORM: Make the form better</h2>
+  
+    The positions of the boxes and the colour scheme in the css file make it easier to use the form by being more visible and easier to access the buttons. I also made the default value 'none' in all of my options so the user can be prompted to select another value when creating a buggy.
+  
+  </div>
+  
+  
+  <div class="task">
+    <h2 class="h2">2-COST: Calculate and save the game cost of the buggy</h2>
+  
+    I made separate lists containing all the costs for each upgrade and made a total cost variable which added up each item in the list. The POST method will update the values to those given in the created lists, then the html will be updated to show the selected upgrades. The view buggy page will also update to show the total cost of the buggy upgrades.
+  
+  </div>
+  <div class="task">
+    <h2 class="h2">2-RULES: Add validation according to the game rules</h2>
+  
+    I added conditionals which ensure the user cannot select 'none' as an option when building a buggy. This will ensure consistency and ease of use for the user when browsing the website. I also made the number of tyres be an even integer as stated in the rules, along with checking the number of tyres >= number of wheels.
+  
+  </div> 
+  
+  <div class="task">
+    <h2 class="h2">3-ENV: Switch between dev and production environments</h2>
+  
+    I first needed to gain an understanding of what and why development environments are used. Then I created a simplified line of code to permanently set the environment to development: FLASK_ENV='development'. However in a practical application, I realised it would be helpful to be able to switch between dev and production environments on the fly, so I installed the dotenv library and created an env file in the workspace. This would allow me to tweak the boolean values of the debug and environment variables because of how they interact with the os library. For example: 
+  DEBUG=True
+  ENV=development
+  This is added functionality and gives the developer more choice and control on when to switch between testing and showcasing environments.
+  
+  </div>
+  
+  
+  <div class="task">
+    <h2 class="h2">3-AUTOFILL: Add auto-fill to the edit forms</h2>
+  
+    I added a javascript function to the buggy-form html which retrieved the elements by name and allocated them a default value. In this case I selected whichever upgrade I wanted because I was unsure on how to randomly allocate upgrades, even more so to fit specific conditions such as staying within a cost limit. I also added a button at the end of the form such that when it is clicked, it runs the javascript function I created called autocompletevalues().
+  
+  </div>
+  
+  
+
+</section>
+
+<a href="/" class="button">Home</a>
+{% endblock %}

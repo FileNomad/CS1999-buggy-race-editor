@@ -2,16 +2,21 @@
 
 {% block content %}
 
-  <h1>
-    My buggy editor
-  </h1>
+<style>
 
-  <div class="spacer">
+</style>
+
+<div class="spacer">
+  <h1 style="margin-top: -20px;">Ben's Buggy Editor</h1>
+
+  <div>
     <a href="/new" class="button">Make buggy</a>
     <a href="/buggy" class="button">Show buggy</a>
     <a href="/json" class="button">Get buggy JSON</a>
+    <a href="/info" class="button">Get buggy info</a>
+    <a href="/poster" class="button">Get buggy poster</a>
   </div>
-
+<br><br>
   <p>
     Use this editor to specify a racing buggy. The editor saves it in its
     little database and generates JSON data for the buggy. This is the data you
@@ -24,5 +29,6 @@
     will be disqualified from that race... so make sure you program your editor
     correctly.
   </p>
+</div>
 
 {% endblock %}

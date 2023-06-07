@@ -1,6 +1,7 @@
 import sqlite3
+import os
 
-DATABASE_FILE = "database.db"
+DATABASE_FILE = os.environ.get('DATABASE_FILE', 'database.db')
 
 #-----------------------------------------------------------------------------
 # This script initialises your SQLite database for you, just to get you
@@ -23,9 +24,17 @@ connection.execute("""
   CREATE TABLE IF NOT EXISTS buggies (
     id                    INTEGER PRIMARY KEY,
     qty_wheels            INTEGER DEFAULT 4,
-    flag_color            VARCHAR(20),
-    flag_color_secondary  VARCHAR(20),
-    flag_pattern          VARCHAR(20)
+    qty_tyres             INTEGER DEFAULT 4,
+    flag_color            VARCHAR(20) DEFAULT "WHITE",
+    flag_color_secondary  VARCHAR(20) DEFAULT "BLACK",
+    flag_pattern          VARCHAR(20) DEFAULT "plain",
+    power_type            VARCHAR(20) DEFAULT "petrol",
+    tyres                 VARCHAR(20) DEFAULT "knobbly",
+    armour                VARCHAR(20) DEFAULT "none",
+    attack                VARCHAR(20) DEFAULT "none",
+    algo                  VARCHAR(20) DEFAULT "steady",
+    special               VARCHAR(20),
+    total_cost            INTEGER DEFAULT 0
   )
 
 """)

@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>My Buggies</h1>
+
+  {% if buggies %}
+    <ul>
+      {% for buggy in buggies %}
+        <li>
+          <a href="/buggy/{{ buggy['id'] }}/edit">{{ buggy['id'] }}</a>
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>No buggies created yet.</p>
+  {% endif %}
+
+  <p>
+    <a href="/" class="button">Home</a>
+  </p>
+{% endblock %}
